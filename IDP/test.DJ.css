@@ -1,0 +1,23 @@
+#hello {
+    display: inline;
+    background-color: blueviolet
+}
+
+#world {
+    display: inline-block;
+    background-color: brown
+}
+
+h2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+img {
+    height: 40px;
+    display: block
+}
+
+table {
+    margin: 3px 3px;
+    display: inline-block；
+}

@@ -1,0 +1,230 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    /* outline: 1px solid red; */
+    font-family: sans-serif;
+}
+
+.wrapper {
+    width: 970px;
+    background-color: #245076;
+    margin: 0px auto;
+}
+
+
+/* 1 */
+
+.one {
+    display: inline-block;
+}
+
+.one img {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    margin: 9px 0px 7px 18px;
+}
+
+.oneofone {
+    display: inline-block;
+    margin: 2px auto 0px 300px;
+}
+
+.oneofone ul {
+    font-size: 13px;
+    padding: 2px;
+    margin-top: 6px;
+}
+
+.oneofone span {
+    color: white;
+    margin-left: 50px;
+    display: inline-block;
+}
+
+.oneofone ul {
+    display: inline-block;
+}
+
+.oneofone ul a {
+    color: #D4B200
+}
+
+.oneofone ul a li {
+    display: inline;
+    list-style-type: none;
+}
+
+.oneofone ul li:nth-of-type(2) {
+    border-left: 1px solid black;
+    padding-left: 4px;
+}
+
+form {
+    width: 200px;
+    height: 25px;
+    border-radius: 8px;
+    background-color: #444444;
+    text-align: center;
+    padding: 10px 15px 18px 15px;
+}
+
+form input {
+    border: 1px inset;
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    font-size: 10px;
+}
+
+form button {
+    background-color: #245076;
+    border-radius: 4px;
+    border-style: outset;
+    color: white;
+    font-size: 10px;
+    width: 30px;
+    height: 26px;
+}
+
+
+/* 2 */
+
+.two {
+    padding: 10px;
+    background-color: #477EAD;
+    border-right: 2px groove black;
+    border-bottom: 2px groove black;
+    border-radius: 8px;
+    margin: 0px 60px;
+}
+
+.two li {
+    display: inline;
+    list-style-type: none;
+    color: white;
+    margin: 23px;
+    font-size: 21px;
+}
+
+
+/* 3 */
+
+.three {
+    display: inline-block;
+}
+
+.three ul {
+    display: inline-block;
+    margin-left: 100px;
+    margin-top: 15px;
+    vertical-align: top;
+    list-style-image: url(./fdbdc694f033bb0ae71dae99f64f140.png);
+    text-align: center;
+    font-size: 14px;
+    list-style-position: inside;
+}
+
+.three ul a li {
+    padding-bottom: 0px;
+}
+
+.three ul a {
+    color: white;
+}
+
+.para {
+    display: inline-block;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+
+.para p:nth-child(1) {
+    color: white;
+    font-size: 14px;
+    width: 610px;
+}
+
+.para p:nth-child(2) {
+    color: #E8C539;
+    font-size: 19px;
+    line-height: 29px;
+    font-style: italic;
+}
+
+.para p:nth-child(3) {
+    color: white;
+    font-size: 16px;
+    margin: 7px 0px 20px 0px;
+}
+
+
+/* 4 */
+
+.four {
+    display: inline-block;
+    background-color: white;
+    width: 970px;
+}
+
+.four div {
+    display: inline-block;
+    width: 420px;
+    vertical-align: top;
+    border-top: 3px solid#73A7D5;
+    margin-left: 30px;
+    padding: 5px;
+    margin-top: 12px;
+}
+
+.four div:nth-child(1) {
+    margin-left: 50px;
+}
+
+.four h4 {
+    font-weight: 540;
+    font-size: 15px;
+    text-align: center;
+    width: 275px;
+}
+
+.four p {
+    text-align: center;
+    font-size: 13px;
+    width: 275px;
+}
+
+.appblue {
+    color: #73A7D5;
+    font-size: 11px;
+}
+
+.four ul {
+    color: #81B0D9;
+    padding: 5px;
+    margin-left: 37px;
+    font-size: 13px;
+    width: 220px;
+    text-align: center;
+}
+
+
+/* 5 */
+
+.five {
+    display: inline-block;
+    width: 970px;
+}
+
+.five p {
+    display: inline-block;
+    color: #73A7D5;
+    font-size: 15px;
+    text-align: center;
+    margin: 50px 0px 30px 70px;
+}
+
+.five p:nth-child(1) {
+    margin-left: 140px;
+}

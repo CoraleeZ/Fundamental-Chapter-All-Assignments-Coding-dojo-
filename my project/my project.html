@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to Qian's Diary!</title>
+    <link rel="stylesheet" href="./my project.css">
+    <link rel="stylesheet" href="./balloon.css">
+    <script type="text/javascript" src="alphabet.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+    <canvas id="myCanvas"></canvas>
+    <script type="text/javascript" src="bubbles.js"></script>
+    <span>A record of life<div id="dot"></div></span>
+    <script>
+        //let"..."repeat
+        var output = "";
+
+        function drawDot() {
+            if (output == "⭐⭐⭐") {
+                output = "";
+            }
+            output += "⭐";
+            console.log(output);
+            setTimeout(drawDot, 1000);
+        }
+        drawDot();
+
+        function appearDot() {
+            document.getElementById("dot").innerText = "";
+            document.getElementById("dot").innerText = output;
+            setTimeout(appearDot, 1000)
+        }
+        appearDot();
+    </script>
+
+    <p id="introOfMe">Hi there! I'm a passionated woman with open mind,kind hearted and true romantic. Friends describ me as an amazing-creator who always wanna try new and challenge things! I gonna post the interesting and chellenging things I experienced in my life here
+        to share with u.</p>
+    <button id=hamster data-balloon-length="medium" data-balloon="Click on me please!" data-balloon-pos="up"></button>
+
+    <script>
+        //let the gif change.
+        var nameOfPic = ["hamsterrun", "hamsterfaint", "hamstercircle"]
+        var count = -1
+
+        function drawPic() {
+            count += 1;
+            if (count == 3) {
+                count = 0
+            }
+            console.log(nameOfPic[count]);
+        }
+
+        function appearPic() {
+            document.getElementById("hamster").innerHTML = "";
+            document.getElementById("hamster").innerHTML = '<img id="hamsterimg" src="./' + nameOfPic[count] + '.gif" alt="hamster">'
+        }
+
+        function timerPic() {
+            drawPic();
+            appearPic();
+            setTimeout(timerPic, 2000);
+        }
+        timerPic();
+    </script>
+
+
+
+
+</body>
+
+
+
+</html>

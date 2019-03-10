@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        ninjaman
+    </title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+            line-height: 0px
+        }
+        
+        .wall {
+            display: inline-block;
+            background-color: blue;
+            height: 40px;
+            width: 40px;
+        }
+        
+        .sushi {
+            display: inline-block;
+            background-image: url("./img/sushi.png");
+            height: 40px;
+            width: 40px;
+            background-size: contain;
+            background-color: black
+        }
+        
+        .black {
+            display: inline-block;
+            background-color: black;
+            height: 40px;
+            width: 40px;
+        }
+        
+        .onigiri {
+            display: inline-block;
+            background-image: url("./img/onigiri.png");
+            height: 40px;
+            width: 40px;
+            background-size: contain;
+            background-color: black
+        }
+        
+        #ninjaman {
+            background-image: url("./img/ninja.gif");
+            height: 40px;
+            width: 40px;
+            background-size: contain;
+            position: absolute;
+        }
+        
+        #score {
+            line-height: 2px;
+            text-align: justify;
+            text-decoration: blue;
+            font-style: italic
+        }
+    </style>
+</head>
+
+<body>
+    <div id="world">
+    </div>
+    <div id="ninjaman"></div>
+    <p id="score"></p>
+</body>
+<script type="text/javascript">
+    var world = [
+        [1, 1, 1, 1, 1, 1],
+        [1, 2, 3, 3, 1, 1],
+        [1, 2, 1, 2, 3, 1],
+        [1, 3, 1, 1, 2, 1],
+        [1, 1, 1, 3, 2, 1],
+        [1, 1, 1, 1, 1, 1],
+    ]
+
+
+    for (var i = 1; i < 5; i++) {
+        for (var z = 1; z < 5; z++) {
+            world[i][z] = Math.floor(Math.random() * (4 - 1)) + 1;
+        }
+    }
+    num1 = Math.floor(Math.random() * (4 - 1)) + 1;
+    num2 = Math.floor(Math.random() * (4 - 1)) + 1;
+    world[num1][num2] = 0
+
+    var worlddict = {
+        0: "black",
+        1: "wall",
+        2: "sushi",
+        3: "onigiri"
+    }
+
+    function drawworld() {
+        var output = "";
+        for (var row = 0; row < world.length; row++) {
+            output += "<div class='row'>"
+            for (var x = 0; x < world[row].length; x++) {
+                output += "<div class='" + worlddict[world[row][x]] + "'></div>"
+            }
+            output += "</div>"
+        }
+        document.getElementById("world").innerHTML = output;
+    }
+    drawworld();
+
+    var ninjaman = {
+        x: num2,
+        y: num1
+    }
+    var count = 0
+
+    function drawNinjaMan() {
+        document.getElementById("ninjaman").style.left = ninjaman.x * 40 + "px";
+        document.getElementById("ninjaman").style.top = ninjaman.y * 40 + "px";
+    }
+    drawNinjaMan()
+    document.onkeydown = function(e) {
+        console.log(e);
+        if (e.keyCode == 37) {
+            if (world[ninjaman.y][ninjaman.x - 1] != 1) {
+                ninjaman.x--
+            }
+        }
+        if (e.keyCode == 39) {
+            if (world[ninjaman.y][ninjaman.x + 1] != 1) {
+                ninjaman.x++
+            }
+        }
+        if (e.keyCode == 38) {
+            if (world[ninjaman.y - 1][ninjaman.x] != 1) {
+                ninjaman.y--
+            }
+        }
+        if (e.keyCode == 40) {
+            if (world[ninjaman.y + 1][ninjaman.x] != 1) {
+                ninjaman.y++
+            }
+        }
+        if (world[ninjaman.y][ninjaman.x] == 2 || world[ninjaman.y][ninjaman.x] == 3) {
+            count++
+            document.getElementById("score").innerHTML = "The score is " + count
+        }
+        world[ninjaman.y][ninjaman.x] = 0;
+        drawworld()
+        drawNinjaMan()
+    }
+</script>
+
+</html>

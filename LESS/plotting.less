@@ -1,0 +1,84 @@
+                                 * {
+                                 margin: 0px;
+                                 padding: 0px;
+                             }
+                             
+                             #header {
+                                 height: 150px;
+                                 background-color: green;
+                                 display: block;
+                                 background-position: center;
+                                 border-width: 100%;
+                                 margin: 20px;
+                             }
+                             
+                             #navigation {
+                                 min-height: 300px;
+                                 display: inline-block;
+                                 width: 18%;
+                                 background-color: blue;
+                                 margin-left: 20px;
+                                 margin-right: 10px;
+                                 margin-top: 10px;
+                             }
+                             
+                             #main_content {
+                                 min-height: 400px;
+                                 background-color: red;
+                                 display: inline-block;
+                                 vertical-align: top;
+                                 margin: 10px;
+                                 /* text-align: center */
+                             }
+                             
+                             .subcontents {
+                                 min-height: 200px;
+                                 /* width: 31%; */
+                                 background-color: yellow;
+                                 display: inline-block;
+                                 margin: 13px;
+                             }
+                             
+                             #advertisement {
+                                 min-height: 120px;
+                                 background-color: purple;
+                                 display: block;
+                                 margin: 10px;
+                                 border-width: 100%;
+                             }
+                             /* sm */
+                             
+                             @media only screen and (max-width:480px) {
+                                 #navigation {
+                                     display: none;
+                                 }
+                                 #main_content {
+                                     display: block;
+                                     border-width: 100%;
+                                     margin: 20px;
+                                 }
+                                 .subcontents {
+                                     display: block;
+                                     border-width: 100%;
+                                     margin: 10px;
+                                 }
+                             }
+                             /* med */
+                             
+                             @media only screen and (min-width:481px) {
+                                 #navigation {
+                                     display: none;
+                                 }
+                                 #main_content {
+                                     display: block;
+                                     border-width: 100%;
+                                     margin: 20px;
+                                 }
+                                 .subcontents {
+                                     display: inline-block;
+                                     width: 43%;
+                                     margin: 10px;
+                                 }
+                                }
+                                 /* bg */
+                                

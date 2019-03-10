@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pacman Game</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .row {
+            height: 50px;
+            display: block;
+        }
+        
+        .wall {
+            width: 46px;
+            height: 46px;
+            border-style: inset;
+            border-color: black;
+            background-color: blue;
+            display: inline-block;
+        }
+        
+        #hero {
+            width: 50px;
+            height: 50px;
+            background-image: url("./hero.gif");
+            background-size: cover;
+            position: absolute;
+        }
+        
+        .coin {
+            width: 50px;
+            height: 50px;
+            background-image: url("./coin.gif");
+            background-size: cover;
+            display: inline-block;
+        }
+        
+        .tunnal {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+        }
+        
+        #score {
+            width: 50px;
+            height: 50px;
+            font-size: 22px;
+            color: orange;
+        }
+        
+        .cherry {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background-image: url("./cherry.png");
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="world">
+        <!-- 
+        <div class="row"></div>
+        <div class="wall"></div>
+        <div class="hero"></div>
+        <div class="coin"></div>
+        <div class="tunnal"></div> -->
+
+
+    </div>
+    <div id="hero"></div>
+    <div id="score">0</div>
+    <script>
+        var world = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 1, 0, 0, 1, 1, 0],
+            [0, 0, 1, 1, 1, 0, 0, 1, 1, 0],
+            [0, 1, 1, 0, 1, 1, 1, 0, 1, 0],
+            [0, 0, 1, 0, 1, 0, 1, 1, 1, 0],
+            [0, 0, 1, 1, 1, 1, 0, 1, 0, 0],
+            [0, 0, 0, 1, 0, 1, 0, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ]
+        var score = 0
+        var item = {
+            0: "wall",
+            1: "coin",
+            2: "tunnal",
+            3: "cherry"
+        }
+
+        // var nu1 = 1,
+        //     nu2 = 1;
+        // var arrn = ["x", "y"];
+        // var arr = [1, -1];
+
+        // function recurtionCreatWorld() {
+        //     if (nu1 > 8 || nu1 < 1 || nu2 > 6 || nu2 < 1) {
+        //         return false;
+        //     }
+
+
+        //     i = Math.floor(Math.random() * 2);
+        //     if (arrn[i] == "x") {
+
+        //         j = Math.floor(Math.random() * 2);
+        //         nu1 += arr[j];
+        //         if (world[nu2][nu1] == 1 || world[nu2][nu1] == 0) {
+        //             recurtionCreatWorld();
+        //         }
+        //     }
+
+        //     if (arrn[i] == "y") {
+
+        //         j = Math.floor(Math.random() * 2);
+        //         nu2 += arr[j];
+        //         if (world[nu2][nu1] == 1 || world[nu2][nu1] == 0) {
+        //             recurtionCreatWorld();
+        //         }
+        //     }
+
+        //     world[nu2][nu1] = 1;
+        //     recurtionCreatWorld();
+        // }
+        // recurtionCreatWorld();
+
+
+
+
+        var n = 0,
+            m = 0;
+
+        function drawcherry() {
+
+            if (world[n][m] == 3) {
+                return false;
+            }
+
+            m = Math.floor(Math.random() * 8 + 1);
+            n = Math.floor(Math.random() * 6 + 1);
+
+            if (world[n][m] == 1) {
+                world[n][m] = 3;
+
+            }
+            drawcherry()
+        }
+
+        world[1][1] = 2;
+        drawcherry();
+
+
+
+        function drawworld() {
+            var output = "";
+            for (var i = 0; i < world.length; i++) {
+                output += "<div class='row'>"
+                for (var j = 0; j < world[i].length; j++) {
+                    output += '<div class="' + item[world[i][j]] + '"></div>'
+                }
+                output += "</div>";
+            }
+            document.getElementById("world").innerHTML = output;
+            console.log(output);
+        }
+
+        drawworld();
+
+        var num1 = 1,
+            num2 = 1,
+            hero = {
+                x: num1,
+                y: num2,
+            }
+
+        function drawhero() {
+            document.getElementById("hero").style.left = 50 * hero.x + "px";
+            document.getElementById("hero").style.top = 50 * hero.y + "px";
+        }
+        drawhero();
+
+        function drawscore() {
+            document.getElementById("score").innerHTML = score;
+        }
+
+        document.onkeydown = function(e) {
+            console.log(e);
+            if (e.keyCode == 37) {
+                if (world[hero.y][hero.x - 1] != 0) {
+                    hero.x--
+                }
+            }
+            if (e.keyCode == 39) {
+                if (world[hero.y][hero.x + 1] != 0) {
+                    hero.x++
+                }
+            }
+            if (e.keyCode == 38) {
+                if (world[hero.y - 1][hero.x] != 0) {
+                    hero.y--
+                }
+            }
+            if (e.keyCode == 40) {
+                if (world[hero.y + 1][hero.x] != 0) {
+                    hero.y++
+                }
+            }
+            if (world[hero.y][hero.x] == 1) {
+                world[hero.y][hero.x] = 2;
+                score++;
+                drawscore()
+                drawworld();
+            }
+            if (world[hero.y][hero.x] == 3) {
+                world[hero.y][hero.x] = 2;
+                score += 50;
+                drawscore()
+                drawworld();
+            }
+
+            drawhero();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+#red {
+    color: red
+}
+
+#italic {
+    font-style: italic
+}
+
+#red_and_italic {
+    color: red;
+    font-style: italic
+}
+
+#blod {
+    font-weight: bold
+}
+
+#underline {
+    text-decoration-line: underline
+}
+
+#briu {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration-line: underline
+}
